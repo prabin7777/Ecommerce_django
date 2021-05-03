@@ -1,0 +1,67 @@
+{% extends 'base.html'%}
+ {% block content%}
+
+
+<div class="container">
+    <div class="p-4 m-4">
+
+
+        <div class="col-lg-5 mx-auto border rounded pt-4">
+            <h3 class="alert alert-light borfer rounded">login</h3>
+           <form action="login" method="POST">
+
+               {% csrf_token %}
+               {%if error %}
+               <div class="alert alert-danger" role="alert">
+
+                   <strong><span>&#9888;</span>{{error}}</strong>
+               </div>
+               {%endif%}
+               {%if success %}
+               <div class="alert alert-success" role="alert">
+
+                   <strong><span>&#10003;</span>{{success}}</strong>
+               </div>
+               {%endif%}
+
+
+
+               <div class="form-group">
+                <label for="">Name</label>
+                <input type="char" name="first_name" value="{{values.first_name}}" id="oop" class="form-control form-control-sm" placeholder="">
+
+              </div>
+              <!-- phone-->
+              <div class="form-group">
+                <label for="">phone no</label>
+                <input type="number" name="phone" value="{{values.phone}}" id="" class="form-control form-control-sm" placeholder="">
+
+              </div>
+               <!-- password -->
+               <div class="form-group">
+                <label for="">password</label>
+                <input type="password" name="password"  id="password" class="form-control fom-control-sm" placeholder="">
+
+
+               </div>
+
+
+
+                <!-- submit -->
+               <div class="form-group">
+                <input class="btn btn-sm btn-info" type="submit" value="log in">
+
+              </div>
+
+
+
+           </form>
+
+        </div>
+        </div>
+    </div>
+
+
+</div>
+
+{%endblock%}

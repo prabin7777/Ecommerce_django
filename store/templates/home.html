@@ -1,0 +1,92 @@
+
+
+{% extends 'base.html'%}
+<!-- navbar -->
+{% block content %}
+{% load cart %}
+{%load custom%}
+<div class="container-fluid mt-3">
+    
+
+   <div class="row">
+       <div class ='col-lg-3 mx-100'>
+           <!-- filter -->
+           <ul class="list-group">
+
+            <li class="list-group-item active">categories</li>
+            <a href="/" class="list-group-item
+                list-group-item-action">All products</a> 
+               {%for category in categories %}
+                <a href="/?category={{category.id}}" class="list-group-item
+                list-group-item-action">{{category.name}}</a> 
+              
+              {% endfor %}
+           </ul>
+
+                <div>
+                     <small>{{message.sale_image.url}}</small>
+                    <img src="{{message.sale_image.url}}" class="img" alt="...">
+                </div>
+
+          <!-- filter -->
+       </div>
+       <div id ='products 'class='col-lg-8 mx-auto' style="background-color:grey;" >
+
+         <div class="row mx-auto">
+
+              {% for product in products %}
+              <div class="card mx-auto " id='{{product.id}}'style="width: 12rem;,length: 15rem;">
+                  <img src="{{product.image.url}}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                     <p class="card-title">{{product.name}}</p>
+                     <p class="card-text"><b>{{product.price|currency}}</b></p>
+                     <p class="card-text">{{product.discription}}</p>
+                     
+
+                     
+
+                       </div> 
+                       <div class="card-footer p-0 row no-gutters">
+                        {% if product|is_in_cart:request.session.cart%}
+                        <form action="/#{{product.id}}" class="mx-auto" method="POST">
+                          {% csrf_token %}
+                           <input hidden type="text" name='product_id' class='mx-auto'value='{{product.id}}'>
+                           <input hidden type="text" name='remove' class='mx-auto'value='True'>
+                           <input  type='submit' value="subtract" class ="mx-auto btn btn-block btn-primary">
+
+                           </form>
+                          <div class="text-centre mx auto">{{product|cart_quantity:request.session.cart}} in cart</div>
+                          <form action="/#{{product.id}}" class="mx-auto" method="POST">
+                           {% csrf_token %}
+                            <input hidden type="text" name='product_id'class='mx-auto' value='{{product.id}}'>
+                            <input  type='submit' value="Addition" class ="mx-auto btn btn-block btn-primary">
+
+                            </form>
+
+ 
+ 
+ 
+                        
+                         
+                       {% else %}
+
+                            <form action="/#{{product.id}}" method="POST">
+                           {% csrf_token %}
+                            <input hidden type="text" name='product_id' value='{{product.id}}'>
+                             <input  type='submit' class="btn btn-dark" value="Add to cart">
+                    
+                            </form>
+                       
+                       {%endif%}
+                      </div>
+              </div>
+            {% endfor %}
+           </div>
+     </div>
+
+
+   </div>
+ </div>
+
+   {%endblock%}
+ 

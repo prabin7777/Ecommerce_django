@@ -1,0 +1,83 @@
+ {% extends 'base.html'%}
+ {% block content%}
+
+{% load cart %}
+{%load custom%}
+<div class="container">
+    <div class="boder rounded p-4 m-4">
+        <p class='display-4'>Your cart<span>&#x1F6D2;</span></p>
+
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Sno.</th>
+                    <th>Image</th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                                </tr>
+            </thead>
+            <tbody>
+
+
+                {%for product in products %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td><img style="height: 50px;" class='rounded-circle'src='{{product.image.url}}' alt =''></td>
+                    <td>{{product.name}}</td>
+                    <td>{{product.price|currency}}</td>
+                    <td>{{product|cart_quantity:request.session.cart}}</td>
+                    <td>{{product|total_price:request.session.cart|currency}}</td>
+                </tr>
+               {%endfor%}
+            </tbody>
+            <tfoot>
+                <tr>
+
+                    <th colspan="5">Total</th>
+                    <th>{{products|total_cart_price:request.session.cart|currency}}</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+        <div class='m-3 p-3'>
+        <a href='#' class="btn btn-outline-info border rounded col-lg-3 float-right" data-toggle="modal" data-target="exampleModal">Check out</a>
+
+
+        </div>
+        
+
+    
+
+</div>
+
+
+
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">checkout form</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{%endblock%}

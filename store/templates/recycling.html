@@ -1,0 +1,10 @@
+{% extends 'base.html'%}
+ {% block content%}
+{%for message in messages %}
+<h1><marquee>{{message.recycle_message}}</marquee></h1>
+
+{% endfor %}
+
+{%endblock%}
+
+
