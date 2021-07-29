@@ -20,11 +20,15 @@ here in above command mysite is project name, you can choose whatever you want.
   this project is based on frontend html and bootstrap, backend is Django
   simple and easily costumabe.
   # Home screen(categories and products)
-  ![Screenshot (160)](https://user-images.githubusercontent.com/79640658/127440847-8b4f6ec8-d62f-49aa-9586-a3ff2e1007fc.png)
+  ![Screenshot (160)](https://user-images.githubusercontent.com/79640658/127441466-c6b72f53-9db2-47f2-b16b-22384ce65478.png)
+
   # simple cart page!
-  [Screenshot (161)](https://user-images.githubusercontent.com/79640658/127440915-ae7b3bf3-70d3-46d8-bc3a-c0aafbad195b.png)
+  ![Screenshot (163)](https://user-images.githubusercontent.com/79640658/127441485-def45718-a90b-467d-92ab-6e167243131d.png)
+
 # sinup page
-![Screenshot (163)](https://user-images.githubusercontent.com/79640658/127440876-c1aa6ce8-7855-47f1-bb78-6bdcc781daf6.png)
+![Screenshot (161)](https://user-images.githubusercontent.com/79640658/127441514-587551cb-b9de-41eb-8a6a-821f3dadfc40.png)
+
 # login page
-![Screenshot (162)](https://user-images.githubusercontent.com/79640658/127440992-a0d471e4-80ab-4c5d-8a52-0cb5bf91ce55.png)
+![Screenshot (162)](https://user-images.githubusercontent.com/79640658/127441528-feabfa6a-e896-484b-ac33-637986948129.png)
+
 
